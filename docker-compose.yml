@@ -1,0 +1,110 @@
+# 1 client node
+client01:
+  container_name: client01
+  image: elasticsearch
+  command:
+    - elasticsearch
+    - -Des.node.name=client01
+    - -Des.node.master=false
+    - -Des.node.data=false
+    - -Des.discovery.zen.ping.unicast.hosts=master03
+    - -Des.network.host=_eth0_
+  ports:
+    - "9200:9200"
+# 5 data nodes
+data01:
+  container_name: data01
+  image: elasticsearch
+  command:
+    - elasticsearch
+    - -Des.node.name=data01
+    - -Des.node.master=false
+    - -Des.discovery.zen.ping.unicast.hosts=master02
+    - -Des.network.host=_eth0_
+  ports:
+    - "9201:9200"
+data02:
+  container_name: data02
+  image: elasticsearch
+  command:
+    - elasticsearch
+    - -Des.node.name=data02
+    - -Des.node.master=false
+    - -Des.discovery.zen.ping.unicast.hosts=master02
+    - -Des.network.host=_eth0_
+  ports:
+    - "9202:9200"
+data03:
+  container_name: data03
+  image: elasticsearch
+  command:
+    - elasticsearch
+    - -Des.node.name=data03
+    - -Des.node.master=false
+    - -Des.discovery.zen.ping.unicast.hosts=master01
+    - -Des.network.host=_eth0_
+  ports:
+    - "9203:9200"
+data04:
+  container_name: data04
+  image: elasticsearch
+  command:
+    - elasticsearch
+    - -Des.node.name=data04
+    - -Des.node.master=false
+    - -Des.discovery.zen.ping.unicast.hosts=master01
+    - -Des.network.host=_eth0_
+  ports:
+    - "9204:9200"
+data05:
+  container_name: data05
+  image: elasticsearch
+  command:
+    - elasticsearch
+    - -Des.node.name=data05
+    - -Des.node.master=false
+    - -Des.discovery.zen.ping.unicast.hosts=master03
+    - -Des.network.host=_eth0_
+  ports:
+    - "9205:9200"
+# 3 dedicated master nodes
+master01:
+  container_name: master01
+  image: elasticsearch
+  command:
+    - elasticsearch
+    - -Des.node.name=master01
+    - -Des.node.data=false
+    - -Des.discovery.zen.ping.unicast.hosts=master02
+    - -Des.network.host=_eth0_
+  ports:
+    - "9210:9200"
+master02:
+  container_name: master02
+  image: elasticsearch
+  command:
+    - elasticsearch
+    - -Des.node.name=master02
+    - -Des.node.data=false
+    - -Des.discovery.zen.ping.unicast.hosts=master03
+    - -Des.network.host=_eth0_
+  ports:
+    - "9211:9200"
+master03:
+  container_name: master03
+  image: elasticsearch
+  command:
+    - elasticsearch
+    - -Des.node.name=master03
+    - -Des.node.data=false
+    - -Des.discovery.zen.ping.unicast.hosts=master01
+    - -Des.network.host=_eth0_
+  ports:
+    - "9212:9200"
+# 1 kibana connected to client node
+kibana:
+  container_name: kibana
+  image: kibana
+  command: kibana --elasticsearch 'http://client01:9200'
+  ports:
+    - "5601:5601"
