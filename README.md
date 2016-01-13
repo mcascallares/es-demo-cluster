@@ -30,8 +30,9 @@ docker-compose --x-networking up
 
 Kibana will be available in the following URL:
 
+```
 http://<your_docker_host>:5601
-
+```
 
 Cluster endpoint via client node:
 
