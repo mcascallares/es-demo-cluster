@@ -22,6 +22,25 @@ It is very convenient for those situation where you need a more realistic ES dep
 
 ## Usage
 
+To start the cluster:
+
 ```
 docker-compose --x-networking up
+```
+
+Kibana will be available in the following URL:
+
+http://<your_docker_host>:5601
+
+
+Cluster endpoint via client node:
+
+```
+curl -XGET <your_docker_host>:9200
+```
+
+For example to check the nodes in the cluster:
+
+```
+curl -XGET <your_docker_host>/_nodes?pretty=true
 ```
