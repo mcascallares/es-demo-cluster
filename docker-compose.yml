@@ -1,10 +1,10 @@
 # 1 client node
-client01:
-  container_name: client01
+elasticsearch:
+  container_name: elasticsearch
   image: elasticsearch
   command:
     - elasticsearch
-    - -Des.node.name=client01
+    - -Des.node.name=elasticsearch
     - -Des.node.master=false
     - -Des.node.data=false
     - -Des.discovery.zen.ping.unicast.hosts=master03
@@ -105,6 +105,14 @@ master03:
 kibana:
   container_name: kibana
   image: kibana
-  command: kibana --elasticsearch 'http://client01:9200'
+  command: kibana --elasticsearch 'http://elasticsearch:9200'
   ports:
     - "5601:5601"
+dockerbeat:
+  container_name: dockerbeat
+  build: images/dockerbeat
+  environment:
+    ELASTICSEARCH_HOST: elasticsearch
+    ELASTICSEARCH_PORT: 9200
+  volumes:
+    - /var/run/docker.sock:/var/run/docker.sock
