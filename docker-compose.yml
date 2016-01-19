@@ -7,7 +7,7 @@ elasticsearch:
     - -Des.node.name=elasticsearch
     - -Des.node.master=false
     - -Des.node.data=false
-    - -Des.discovery.zen.ping.unicast.hosts=master03
+    - -Des.discovery.zen.ping.unicast.hosts=master01,master02,master03
     - -Des.network.host=_eth0_
   ports:
     - "9200:9200"
@@ -19,7 +19,7 @@ data01:
     - elasticsearch
     - -Des.node.name=data01
     - -Des.node.master=false
-    - -Des.discovery.zen.ping.unicast.hosts=master02
+    - -Des.discovery.zen.ping.unicast.hosts=master01,master02,master03
     - -Des.network.host=_eth0_
   ports:
     - "9201:9200"
@@ -30,7 +30,7 @@ data02:
     - elasticsearch
     - -Des.node.name=data02
     - -Des.node.master=false
-    - -Des.discovery.zen.ping.unicast.hosts=master02
+    - -Des.discovery.zen.ping.unicast.hosts=master01,master02,master03
     - -Des.network.host=_eth0_
   ports:
     - "9202:9200"
@@ -41,7 +41,7 @@ data03:
     - elasticsearch
     - -Des.node.name=data03
     - -Des.node.master=false
-    - -Des.discovery.zen.ping.unicast.hosts=master01
+    - -Des.discovery.zen.ping.unicast.hosts=master01,master02,master03
     - -Des.network.host=_eth0_
   ports:
     - "9203:9200"
@@ -52,7 +52,7 @@ data04:
     - elasticsearch
     - -Des.node.name=data04
     - -Des.node.master=false
-    - -Des.discovery.zen.ping.unicast.hosts=master01
+    - -Des.discovery.zen.ping.unicast.hosts=master01,master02,master03
     - -Des.network.host=_eth0_
   ports:
     - "9204:9200"
@@ -63,7 +63,7 @@ data05:
     - elasticsearch
     - -Des.node.name=data05
     - -Des.node.master=false
-    - -Des.discovery.zen.ping.unicast.hosts=master03
+    - -Des.discovery.zen.ping.unicast.hosts=master01,master02,master03
     - -Des.network.host=_eth0_
   ports:
     - "9205:9200"
@@ -75,7 +75,7 @@ master01:
     - elasticsearch
     - -Des.node.name=master01
     - -Des.node.data=false
-    - -Des.discovery.zen.ping.unicast.hosts=master02
+    - -Des.discovery.zen.ping.unicast.hosts=master02,master03
     - -Des.network.host=_eth0_
   ports:
     - "9210:9200"
@@ -86,7 +86,7 @@ master02:
     - elasticsearch
     - -Des.node.name=master02
     - -Des.node.data=false
-    - -Des.discovery.zen.ping.unicast.hosts=master03
+    - -Des.discovery.zen.ping.unicast.hosts=master01,master03
     - -Des.network.host=_eth0_
   ports:
     - "9211:9200"
@@ -97,7 +97,7 @@ master03:
     - elasticsearch
     - -Des.node.name=master03
     - -Des.node.data=false
-    - -Des.discovery.zen.ping.unicast.hosts=master01
+    - -Des.discovery.zen.ping.unicast.hosts=master01,master02
     - -Des.network.host=_eth0_
   ports:
     - "9212:9200"
