@@ -2,7 +2,7 @@
 
 set -e
 
-echo -n 'Waiting for Elasticsearch cluster to be available...'
+echo 'Waiting for Elasticsearch cluster to be available...'
 
 while ! nc -w 1 $ELASTICSEARCH_HOST $ELASTICSEARCH_PORT 2>/dev/null
 do

@@ -8,6 +8,7 @@ This docker-compose project creates a Elasticsearch cluster with the following t
 - 3 dedicated master nodes
 - 1 dedicated client node
 - 1 kibana node pointing to the client node
+- 1 [dockerbeat](https://github.com/Ingensi/dockerbeat) node submitting container metrics to Elasticsearch
 
 This nodes are going to run the latest versions of Elasticsearch and Kibana images available in [Docker Hub](https://hub.docker.com/).
 
@@ -45,3 +46,12 @@ For example to check the nodes in the cluster:
 ```
 > curl -XGET <your_docker_host>/_nodes?pretty=true
 ```
+
+
+## Kibana Dashboards
+
+To visualize the Dockerbeat dashboard follow the following steps:
+
+1. Configure an index pattern with the pattern 'dockerbeat-*'
+2. Import visualizations and dashboard in kibana-dashboards/dockerbeat.json
+3. Enjoy
