@@ -55,3 +55,5 @@ To visualize the Dockerbeat dashboard follow the following steps:
 1. Configure an index pattern with the pattern 'dockerbeat-*'
 2. Import visualizations and dashboard in kibana-dashboards/dockerbeat.json
 3. Enjoy
+
+![Dockerbeat Dashboard](https://raw.githubusercontent.com/mcascallares/es-demo-cluster/master/screenshots/dockerbeat-dashboard.png) 
