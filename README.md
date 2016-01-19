@@ -10,7 +10,7 @@ This docker-compose project creates a Elasticsearch cluster with the following t
 - 1 kibana node pointing to the client node
 - 1 [dockerbeat](https://github.com/Ingensi/dockerbeat) node submitting container metrics to Elasticsearch
 
-This nodes are going to run the latest versions of Elasticsearch and Kibana images available in [Docker Hub](https://hub.docker.com/).
+These nodes are going to run the latest versions of Elasticsearch and Kibana images available in [Docker Hub](https://hub.docker.com/).
 
 It is very convenient for those situation where you need a more realistic ES deployment than just a couple of nodes running on localhost.
 
