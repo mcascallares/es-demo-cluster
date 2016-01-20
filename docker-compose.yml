@@ -76,6 +76,7 @@ master01:
     - -Des.node.name=master01
     - -Des.node.data=false
     - -Des.discovery.zen.ping.unicast.hosts=master02,master03
+    - -Des.discovery.zen.minimum_master_nodes=2
     - -Des.network.host=_eth0_
   ports:
     - "9210:9200"
@@ -87,6 +88,7 @@ master02:
     - -Des.node.name=master02
     - -Des.node.data=false
     - -Des.discovery.zen.ping.unicast.hosts=master01,master03
+    - -Des.discovery.zen.minimum_master_nodes=2
     - -Des.network.host=_eth0_
   ports:
     - "9211:9200"
@@ -98,6 +100,7 @@ master03:
     - -Des.node.name=master03
     - -Des.node.data=false
     - -Des.discovery.zen.ping.unicast.hosts=master01,master02
+    - -Des.discovery.zen.minimum_master_nodes=2
     - -Des.network.host=_eth0_
   ports:
     - "9212:9200"
