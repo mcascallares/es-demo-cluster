@@ -107,7 +107,7 @@ master03:
 # 1 kibana connected to client node
 kibana:
   container_name: kibana
-  image: kibana
+  build: images/kibana
   command: kibana --elasticsearch 'http://elasticsearch:9200'
   ports:
     - "5601:5601"

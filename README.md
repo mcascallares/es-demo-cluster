@@ -8,6 +8,8 @@ This docker-compose project creates a Elasticsearch cluster with the following t
 - 3 dedicated master nodes
 - 1 dedicated client node
 - 1 kibana node pointing to the client node
+	- [Timelion plugin](https://github.com/elastic/timelion) installed
+	- [Sense plugin](https://github.com/elastic/sense) installed
 - 1 [dockerbeat](https://github.com/Ingensi/dockerbeat) node submitting container metrics to Elasticsearch
 
 These nodes are going to run the latest versions of Elasticsearch and Kibana images available in [Docker Hub](https://hub.docker.com/).
@@ -56,4 +58,4 @@ To visualize the Dockerbeat dashboard follow the following steps:
 2. Import visualizations and dashboard in kibana-dashboards/dockerbeat.json
 3. Enjoy
 
-![Dockerbeat Dashboard](https://raw.githubusercontent.com/mcascallares/es-demo-cluster/master/screenshots/dockerbeat-dashboard.png) 
+![Dockerbeat Dashboard](https://raw.githubusercontent.com/mcascallares/es-demo-cluster/master/screenshots/dockerbeat-dashboard.png)
