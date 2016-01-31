@@ -1,4 +1,4 @@
-FROM kibana:latest
+FROM kibana:4.3.1
 MAINTAINER Matias Cascallares <matiascas@gmail.com>
 
 LABEL co.elastic.release-date="2016-01-31"

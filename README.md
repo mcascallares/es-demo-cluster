@@ -12,8 +12,6 @@ This docker-compose project creates a Elasticsearch cluster with the following t
 	- [Sense plugin](https://github.com/elastic/sense) installed
 - 1 [dockerbeat](https://github.com/Ingensi/dockerbeat) node submitting container metrics to Elasticsearch
 
-These nodes are going to run the latest versions of Elasticsearch and Kibana images available in [Docker Hub](https://hub.docker.com/).
-
 It is very convenient for those situation where you need a more realistic ES deployment than just a couple of nodes running on localhost.
 
 

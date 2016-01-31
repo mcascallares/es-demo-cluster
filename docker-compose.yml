@@ -1,7 +1,8 @@
-# 1 client node
 elasticsearch:
   container_name: elasticsearch
-  image: elasticsearch
+  extends:
+    file: common.yml
+    service: elastic
   command:
     - elasticsearch
     - -Des.node.name=elasticsearch
@@ -11,10 +12,11 @@ elasticsearch:
     - -Des.network.host=_eth0_
   ports:
     - "9200:9200"
-# 5 data nodes
 data01:
   container_name: data01
-  image: elasticsearch
+  extends:
+    file: common.yml
+    service: elastic
   command:
     - elasticsearch
     - -Des.node.name=data01
@@ -25,7 +27,9 @@ data01:
     - "9201:9200"
 data02:
   container_name: data02
-  image: elasticsearch
+  extends:
+    file: common.yml
+    service: elastic
   command:
     - elasticsearch
     - -Des.node.name=data02
@@ -36,7 +40,9 @@ data02:
     - "9202:9200"
 data03:
   container_name: data03
-  image: elasticsearch
+  extends:
+    file: common.yml
+    service: elastic
   command:
     - elasticsearch
     - -Des.node.name=data03
@@ -47,7 +53,9 @@ data03:
     - "9203:9200"
 data04:
   container_name: data04
-  image: elasticsearch
+  extends:
+    file: common.yml
+    service: elastic
   command:
     - elasticsearch
     - -Des.node.name=data04
@@ -58,7 +66,9 @@ data04:
     - "9204:9200"
 data05:
   container_name: data05
-  image: elasticsearch
+  extends:
+    file: common.yml
+    service: elastic
   command:
     - elasticsearch
     - -Des.node.name=data05
@@ -67,10 +77,11 @@ data05:
     - -Des.network.host=_eth0_
   ports:
     - "9205:9200"
-# 3 dedicated master nodes
 master01:
   container_name: master01
-  image: elasticsearch
+  extends:
+    file: common.yml
+    service: elastic
   command:
     - elasticsearch
     - -Des.node.name=master01
@@ -82,7 +93,9 @@ master01:
     - "9210:9200"
 master02:
   container_name: master02
-  image: elasticsearch
+  extends:
+    file: common.yml
+    service: elastic
   command:
     - elasticsearch
     - -Des.node.name=master02
@@ -94,7 +107,9 @@ master02:
     - "9211:9200"
 master03:
   container_name: master03
-  image: elasticsearch
+  extends:
+    file: common.yml
+    service: elastic
   command:
     - elasticsearch
     - -Des.node.name=master03
@@ -104,7 +119,6 @@ master03:
     - -Des.network.host=_eth0_
   ports:
     - "9212:9200"
-# 1 kibana connected to client node
 kibana:
   container_name: kibana
   build: images/kibana

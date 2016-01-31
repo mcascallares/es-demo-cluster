@@ -1,0 +1,2 @@
+elastic:
+  image: elasticsearch:2.1.1
