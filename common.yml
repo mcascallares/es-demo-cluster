@@ -1,2 +1,4 @@
 elastic:
   image: elasticsearch:2.2.0
+kibana:
+  image: mcascallares/kibana-on-steroids:latest

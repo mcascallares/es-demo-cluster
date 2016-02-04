@@ -121,7 +121,9 @@ master03:
     - "9212:9200"
 kibana:
   container_name: kibana
-  build: images/kibana
+  extends:
+    file: common.yml
+    service: kibana
   command: kibana --elasticsearch 'http://elasticsearch:9200'
   ports:
     - "5601:5601"
