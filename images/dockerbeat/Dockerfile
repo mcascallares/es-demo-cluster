@@ -3,7 +3,7 @@
 FROM ingensi/dockerbeat:develop
 MAINTAINER Matias Cascallares <matiascas@gmail.com>
 
-LABEL co.elastic.release-date="2016-01-31"
+LABEL co.elastic.release-date="2016-02-11"
 
 RUN apt-get update && apt-get install -y \
 	netcat

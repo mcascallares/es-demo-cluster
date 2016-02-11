@@ -1,4 +1,7 @@
-elastic:
-  image: elasticsearch:2.2.0
-kibana:
-  image: mcascallares/kibana-on-steroids:latest
+version: "2"
+
+services:
+  elastic:
+    image: elasticsearch:2.2.0
+  kibana:
+    image: mcascallares/kibana-on-steroids:latest

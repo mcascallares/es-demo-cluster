@@ -1,137 +1,144 @@
-elasticsearch:
-  container_name: elasticsearch
-  extends:
-    file: common.yml
-    service: elastic
-  command:
-    - elasticsearch
-    - -Des.node.name=elasticsearch
-    - -Des.node.master=false
-    - -Des.node.data=false
-    - -Des.discovery.zen.ping.unicast.hosts=master01,master02,master03
-    - -Des.network.host=_eth0_
-  ports:
-    - "9200:9200"
-data01:
-  container_name: data01
-  extends:
-    file: common.yml
-    service: elastic
-  command:
-    - elasticsearch
-    - -Des.node.name=data01
-    - -Des.node.master=false
-    - -Des.discovery.zen.ping.unicast.hosts=master01,master02,master03
-    - -Des.network.host=_eth0_
-  ports:
-    - "9201:9200"
-data02:
-  container_name: data02
-  extends:
-    file: common.yml
-    service: elastic
-  command:
-    - elasticsearch
-    - -Des.node.name=data02
-    - -Des.node.master=false
-    - -Des.discovery.zen.ping.unicast.hosts=master01,master02,master03
-    - -Des.network.host=_eth0_
-  ports:
-    - "9202:9200"
-data03:
-  container_name: data03
-  extends:
-    file: common.yml
-    service: elastic
-  command:
-    - elasticsearch
-    - -Des.node.name=data03
-    - -Des.node.master=false
-    - -Des.discovery.zen.ping.unicast.hosts=master01,master02,master03
-    - -Des.network.host=_eth0_
-  ports:
-    - "9203:9200"
-data04:
-  container_name: data04
-  extends:
-    file: common.yml
-    service: elastic
-  command:
-    - elasticsearch
-    - -Des.node.name=data04
-    - -Des.node.master=false
-    - -Des.discovery.zen.ping.unicast.hosts=master01,master02,master03
-    - -Des.network.host=_eth0_
-  ports:
-    - "9204:9200"
-data05:
-  container_name: data05
-  extends:
-    file: common.yml
-    service: elastic
-  command:
-    - elasticsearch
-    - -Des.node.name=data05
-    - -Des.node.master=false
-    - -Des.discovery.zen.ping.unicast.hosts=master01,master02,master03
-    - -Des.network.host=_eth0_
-  ports:
-    - "9205:9200"
-master01:
-  container_name: master01
-  extends:
-    file: common.yml
-    service: elastic
-  command:
-    - elasticsearch
-    - -Des.node.name=master01
-    - -Des.node.data=false
-    - -Des.discovery.zen.ping.unicast.hosts=master02,master03
-    - -Des.discovery.zen.minimum_master_nodes=2
-    - -Des.network.host=_eth0_
-  ports:
-    - "9210:9200"
-master02:
-  container_name: master02
-  extends:
-    file: common.yml
-    service: elastic
-  command:
-    - elasticsearch
-    - -Des.node.name=master02
-    - -Des.node.data=false
-    - -Des.discovery.zen.ping.unicast.hosts=master01,master03
-    - -Des.discovery.zen.minimum_master_nodes=2
-    - -Des.network.host=_eth0_
-  ports:
-    - "9211:9200"
-master03:
-  container_name: master03
-  extends:
-    file: common.yml
-    service: elastic
-  command:
-    - elasticsearch
-    - -Des.node.name=master03
-    - -Des.node.data=false
-    - -Des.discovery.zen.ping.unicast.hosts=master01,master02
-    - -Des.discovery.zen.minimum_master_nodes=2
-    - -Des.network.host=_eth0_
-  ports:
-    - "9212:9200"
-kibana:
-  container_name: kibana
-  extends:
-    file: common.yml
-    service: kibana
-  command: kibana --elasticsearch 'http://elasticsearch:9200'
-  ports:
-    - "5601:5601"
-dockerbeat:
-  container_name: dockerbeat
-  build: images/dockerbeat
-  environment:
-    ELASTICSEARCH_HOST: elasticsearch
-    ELASTICSEARCH_PORT: 9200
-  volumes:
-    - /var/run/docker.sock:/var/run/docker.sock
+version: "2"
+
+services:
+  elasticsearch:
+    container_name: elasticsearch
+    extends:
+      file: common.yml
+      service: elastic
+    command:
+      - elasticsearch
+      - -Des.node.name=elasticsearch
+      - -Des.node.master=false
+      - -Des.node.data=false
+      - -Des.discovery.zen.ping.unicast.hosts=master01,master02,master03
+      - -Des.network.host=_eth0_
+    ports:
+      - "9200:9200"
+  data01:
+    container_name: data01
+    extends:
+      file: common.yml
+      service: elastic
+    command:
+      - elasticsearch
+      - -Des.node.name=data01
+      - -Des.node.master=false
+      - -Des.discovery.zen.ping.unicast.hosts=master01,master02,master03
+      - -Des.network.host=_eth0_
+    ports:
+      - "9201:9200"
+  data02:
+    container_name: data02
+    extends:
+      file: common.yml
+      service: elastic
+    command:
+      - elasticsearch
+      - -Des.node.name=data02
+      - -Des.node.master=false
+      - -Des.discovery.zen.ping.unicast.hosts=master01,master02,master03
+      - -Des.network.host=_eth0_
+    ports:
+      - "9202:9200"
+  data03:
+    container_name: data03
+    extends:
+      file: common.yml
+      service: elastic
+    command:
+      - elasticsearch
+      - -Des.node.name=data03
+      - -Des.node.master=false
+      - -Des.discovery.zen.ping.unicast.hosts=master01,master02,master03
+      - -Des.network.host=_eth0_
+    ports:
+      - "9203:9200"
+  data04:
+    container_name: data04
+    extends:
+      file: common.yml
+      service: elastic
+    command:
+      - elasticsearch
+      - -Des.node.name=data04
+      - -Des.node.master=false
+      - -Des.discovery.zen.ping.unicast.hosts=master01,master02,master03
+      - -Des.network.host=_eth0_
+    ports:
+      - "9204:9200"
+  data05:
+    container_name: data05
+    extends:
+      file: common.yml
+      service: elastic
+    command:
+      - elasticsearch
+      - -Des.node.name=data05
+      - -Des.node.master=false
+      - -Des.discovery.zen.ping.unicast.hosts=master01,master02,master03
+      - -Des.network.host=_eth0_
+    ports:
+      - "9205:9200"
+  master01:
+    container_name: master01
+    extends:
+      file: common.yml
+      service: elastic
+    command:
+      - elasticsearch
+      - -Des.node.name=master01
+      - -Des.node.data=false
+      - -Des.discovery.zen.ping.unicast.hosts=master02,master03
+      - -Des.discovery.zen.minimum_master_nodes=2
+      - -Des.network.host=_eth0_
+    ports:
+      - "9210:9200"
+  master02:
+    container_name: master02
+    extends:
+      file: common.yml
+      service: elastic
+    command:
+      - elasticsearch
+      - -Des.node.name=master02
+      - -Des.node.data=false
+      - -Des.discovery.zen.ping.unicast.hosts=master01,master03
+      - -Des.discovery.zen.minimum_master_nodes=2
+      - -Des.network.host=_eth0_
+    ports:
+      - "9211:9200"
+  master03:
+    container_name: master03
+    extends:
+      file: common.yml
+      service: elastic
+    command:
+      - elasticsearch
+      - -Des.node.name=master03
+      - -Des.node.data=false
+      - -Des.discovery.zen.ping.unicast.hosts=master01,master02
+      - -Des.discovery.zen.minimum_master_nodes=2
+      - -Des.network.host=_eth0_
+    ports:
+      - "9212:9200"
+  kibana:
+    container_name: kibana
+    extends:
+      file: common.yml
+      service: kibana
+    command: kibana --elasticsearch 'http://elasticsearch:9200'
+    depends_on:
+      - elasticsearch
+    ports:
+      - "5601:5601"
+  dockerbeat:
+    container_name: dockerbeat
+    build: images/dockerbeat
+    environment:
+      ELASTICSEARCH_HOST: elasticsearch
+      ELASTICSEARCH_PORT: 9200
+    depends_on:
+      - elasticsearch
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock

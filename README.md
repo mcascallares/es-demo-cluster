@@ -17,8 +17,8 @@ It is very convenient for those situation where you need a more realistic ES dep
 
 ## Requirements
 
-- [docker](https://www.docker.com) 1.9 or later since it relies on the latest Docker networking capabilities
-- [docker-compose](https://www.docker.com/docker-compose)
+- [docker](https://www.docker.com) 1.9
+- [docker-compose](https://www.docker.com/docker-compose) 1.6
 
 
 ## Usage
@@ -26,7 +26,7 @@ It is very convenient for those situation where you need a more realistic ES dep
 To start the cluster:
 
 ```
-> docker-compose --x-networking up
+> docker-compose up
 ```
 
 Kibana will be available in the following URL:
