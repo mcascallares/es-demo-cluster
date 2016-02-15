@@ -89,6 +89,7 @@ services:
       - elasticsearch
       - -Des.node.name=master01
       - -Des.node.data=false
+      - -Des.node.client=false
       - -Des.discovery.zen.ping.unicast.hosts=master02,master03
       - -Des.discovery.zen.minimum_master_nodes=2
       - -Des.network.host=_eth0_
@@ -103,6 +104,7 @@ services:
       - elasticsearch
       - -Des.node.name=master02
       - -Des.node.data=false
+      - -Des.node.client=false
       - -Des.discovery.zen.ping.unicast.hosts=master01,master03
       - -Des.discovery.zen.minimum_master_nodes=2
       - -Des.network.host=_eth0_
@@ -117,6 +119,7 @@ services:
       - elasticsearch
       - -Des.node.name=master03
       - -Des.node.data=false
+      - -Des.node.client=false
       - -Des.discovery.zen.ping.unicast.hosts=master01,master02
       - -Des.discovery.zen.minimum_master_nodes=2
       - -Des.network.host=_eth0_
