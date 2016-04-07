@@ -2,7 +2,7 @@ version: "2"
 
 services:
   elastic:
-    image: elasticsearch:2.2.1
+    image: elasticsearch:2.3.1
     security_opt:
       - seccomp:unconfined
   kibana:
