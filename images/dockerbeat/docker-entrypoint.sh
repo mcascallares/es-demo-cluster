@@ -15,4 +15,4 @@ echo 'Configuring dockerbeat template...'
 curl --silent -XPUT "http://$ELASTICSEARCH_HOST:$ELASTICSEARCH_PORT/_template/dockerbeat" -d@dockerbeat.template.json; echo
 
 echo 'Starting dockerbeat...'
-./dockerbeat -e -c dockerbeat.yml
+dockerbeat -e -c dockerbeat.yml
