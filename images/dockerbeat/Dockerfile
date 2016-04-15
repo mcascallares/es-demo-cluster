@@ -1,6 +1,4 @@
-# we should use development version to avoid dot issues
-# https://github.com/Ingensi/dockerbeat/issues/64
-FROM ingensi/dockerbeat:develop
+FROM ingensi/dockerbeat:1.0.0-rc1
 MAINTAINER Matias Cascallares <matiascas@gmail.com>
 
 LABEL co.elastic.release-date="2016-02-11"
